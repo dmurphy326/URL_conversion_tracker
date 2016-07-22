@@ -1,0 +1,65 @@
+<div class="container-fluid">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="jumbotron" align="center">
+			<h1>Admin!!!</h1>
+
+		</div>		
+	</div>
+	
+	<div class="container">
+		<label for="path">Base Path: </label>
+		<input id="path" ng-model="adminController.path" readonly/>
+	</div>
+	
+	<div class="container">
+		<div id="content">
+    		<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        		<li class="active"><a href="#welcome" data-toggle="tab">Welcome</a></li>
+        		<li><a href="#URLs" data-toggle="tab">URLs</a></li>
+        		<li><a href="#hits" data-toggle="tab">Hits</a></li>
+    		</ul>
+    		<div id="my-tab-content" class="tab-content">
+        		<div class="tab-pane active" id="welcome">
+            		<h1>Welcome</h1>
+            		<h3>Welcome Admin!!!</h3>
+            		<div class="content">
+            			<label>User: {{adminController.username}}</label><br/>
+            			<label>Role: {{adminController.role}}</label>
+            			<br/><br/>            			
+            			<p><b>Remember...</b><br/>You is kind,<br/> You is smart,<br/> You is impotent</p>
+            		</div>
+        		</div>
+        		
+        		<div class="tab-pane" id="URLs">
+           			<h1>URLs</h1>
+            		<div class="list-group">
+						<div ng-repeat="url in adminController.urls">
+							<span>{{url.base}}/{{url.id}}</span>
+							<span>{{url.label}}</span>
+							<span>{{url.description}}</span>							
+						</div>
+					</div>
+										
+        		</div>
+        		
+        		<div class="tab-pane" id="hits">
+            		<h1>Hits</h1>
+            		...More coming soon
+        		</div>
+    		</div>
+		</div>
+		
+		<script type="text/javascript">
+    		jQuery(document).ready(function ($) {
+        	//without this the default action of rerouting to the default page 
+        	//would happen
+        	$('#tabs a').click(()=> {
+            	event.preventDefault()
+            	})
+        	
+        	$('#tabs').tab();
+    		});
+		</script>  
+	</div>
+
+</div>
